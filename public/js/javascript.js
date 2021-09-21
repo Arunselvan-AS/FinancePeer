@@ -1,4 +1,3 @@
-get_cars()
 
  function get_cars(){
      var request=new XMLHttpRequest();
@@ -12,38 +11,30 @@ get_cars()
      }
  }
 
- function printCars(cars){
+ function printCars(table1){
     var table =document.getElementById("car_table");
     var j=1;
-    for (var i in cars){
-       const userId=table[i].userId;
-       const id=table[i].id;
-       const title=cars[i].title;
-       const body=cars[i].body;
+    for (var i in table1){
+       const userId=table1[i].userID;
+       const id=table1[i].id;
+       const title=table1[i].title;
+       const body=table1[i].body;
 
+       var userId_cell = document.createElement("td")
        var id_cell = document.createElement("td")
-       var plate_cell = document.createElement("td")
-       var date_cell = document.createElement("td")
-       var entry_cell = document.createElement("td")
-       var exit_cell = document.createElement("td")
-       var fee_cell = document.createElement("td")
-       var parked_cell = document.createElement("td")
+       var title_cell = document.createElement("td")
+       var body_cell = document.createElement("td")
+
        var row = document.createElement("tr");
+       userId_cell.append(userId)
        id_cell.append(id)
-       plate_cell.append(plate)
-       date_cell.append(date)
-       entry_cell.append(entry)
-       exit_cell.append(exit)
-       fee_cell.append(fee)
-       parked_cell.append(parked)
+       title_cell.append(title)
+       body_cell.append(body)
+    
+       row.appendChild(userId_cell)
        row.appendChild(id_cell)
-       row.appendChild(plate_cell)
-       row.appendChild(date_cell)
-       row.appendChild(entry_cell)
-       row.appendChild(exit_cell)
-       row.appendChild(fee_cell)
-       row.appendChild(parked_cell)
+       row.appendChild(title_cell)
+       row.appendChild(body_cell)
        table.append(row)
-       j = j+1;
     }
    }
